@@ -12,8 +12,9 @@ def answer(prmpt):
     response = openai.Completion.create(model="text-davinci-003",
                                         prompt=prmpt,
                                         temperature=0,
-                                        max_tokens=30)
-    return response
+                                        max_tokens=256)
+    return response["choices"][0]["text"]
+
 
 @app.route('/')
 def home():
